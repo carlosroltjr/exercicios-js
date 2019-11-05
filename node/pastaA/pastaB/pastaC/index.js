@@ -1,0 +1,1 @@
+this.elogio = 'Você é legal!'

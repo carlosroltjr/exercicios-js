@@ -1,0 +1,27 @@
+const url = 'http://files.cod3r.com.br/curso-js/funcionarios.json';
+const axios = require('axios');
+
+// Minha solução
+const chinesas = func => func.genero === 'F' && func.pais === 'China';
+const menorSalario = (func, funcAtual) => {
+    return func.salario < funcAtual.salario ? func : funcAtual;
+};
+
+axios.get(url).then(response => {
+    const funcionarios = response.data;
+    const chinesaMaisPobre = funcionarios.filter(chinesas).reduce(menorSalario);
+    console.log(chinesaMaisPobre);
+});
+
+// Solução do professor (muito melhor kkk...)
+// const chineses = func => func.pais === 'China'
+// const mulheres = func => func.genero === 'F';
+// const menorSalario = (func, funcAtual) => {
+//     return func.salario < funcAtual.salario ? func : funcAtual;
+// };
+
+// axios.get(url).then(response => {
+//     const funcionarios = response.data;
+//     const func = funcionarios.filter(chineses).filter(mulheres).reduce(menorSalario);
+//     console.log(func);
+// });
