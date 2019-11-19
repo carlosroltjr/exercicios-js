@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Um Pouco de CSS</title>
+    <link rel="stylesheet" href="./umPoucoDeCss.css">
+    <style>
+        h1 {
+            font-size: 25px;
+        }
+
+        /* criar uma classe */
+        .fundoVermelho {
+            /* rgb, red green e blue. 2 digitos pra cada: #ff0000 */
+            background-color: #C00;
+        }
+
+        .negrito {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS</h1>
+    <span id="textoPrincipal">Texto 1</span><br><br>
+    <!-- class é um tipo de identificador assim como o id -->
+    <span class="fundoVermelho negrito">Texto 2</span><br><br>
+    <span class="fundoVermelho" wm-atrib>Texto 3</span>
+</body>
+
+</html>
+
+
+<!-- document.querySelector('#textoPrincipal') -->
+<!-- document.querySelectorAll('.fundoVermelho') -->
+<!-- document.querySelectorAll('[wm-atrib]') -->
