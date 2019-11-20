@@ -1,0 +1,68 @@
+<table>
+    <!-- sobre o que é a tabela -->
+    <caption>Produtos</caption>
+    <!-- cabeçalho da tabela -->
+    <thead>
+        <!-- table row, a linha da tabela -->
+        <tr>
+            <!-- table head, cabeçalho -->
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <!-- corpo da tabela -->
+    <tbody>
+        <tr>
+            <!-- table data -->
+            <td>iPad</td>
+            <td>3289,00</td>
+            <td>5</td>
+            <td>16445,00</td>
+        </tr>
+        <tr>
+            <td>Sasung S9</td>
+            <td>2649,00</td>
+            <td>8</td>
+            <td>21192,00</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" rowspan="2">Preço Final</td>
+            <td>37637,00</td>
+        </tr>
+        <tr>
+            <td>teste</td>
+        </tr>
+    </tfoot>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    /* aplique nos th's e nos td's */
+    th,
+    td {
+        padding: 10px;
+    }
+
+    /* nos tr's que estão dentro dos thead's faça: */
+    thead tr {
+        border-bottom: solid 3px #444;
+    }
+
+    /* quando o mouse passar por cima de um tr que está dentro do tbody */
+    tbody tr:hover {
+        background-color: #dedede;
+    }
+
+    tfoot {
+        background-color: #444;
+        color: #fff;
+        font-weight: bold;
+    }
+</style>

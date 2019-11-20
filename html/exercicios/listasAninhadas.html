@@ -1,18 +1,18 @@
 <h1>Projeto</h1>
 <ul class="tree">
-    <li pasta>
-        backend
+    <li>
+        <span wm-pasta>backend</span>
         <ul>
-            <li pasta>
-                app
+            <li>
+                <span wm-pasta>app</span>
                 <ul>
                     <li>produto.js</li>
                     <li>usuario.js</li>
                     <li>venda.js</li>
                 </ul>
             </li>
-            <li pasta>
-                config
+            <li>
+                <span wm-pasta>config</span>
                 <ul>
                     <li>banco.js</li>
                     <li>rotas.js</li>
@@ -21,10 +21,11 @@
             </li>
         </ul>
     </li>
-    <li pasta>
-        frontend
+    <li>
+        <span wm-pasta>frontend</span>
         <ul>
-            <li pasta>public
+            <li>
+                <span wm-pasta>public</span>
                 <ul>
                     <li>app.css</li>
                     <li>app.js</li>
@@ -37,5 +38,11 @@
 
 <link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
 <script>
-    document.querySelectorAll('[pasta]').forEach()
+    document.querySelectorAll('[wm-pasta]').forEach(pasta => {
+        pasta.onclick = () => {
+            const ul = pasta.nextElementSibling
+            const display = ul.style.display;
+            ul.style.display = display === 'none' ? 'block' : 'none';
+        }
+    });
 </script>

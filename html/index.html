@@ -18,23 +18,26 @@
         <h1>Exercícios HTML</h1>
     </header>
     <nav>
-        <a href="exercicios/teste.html">00 - Teste</a> |
-        <a href="exercicios/texto1.html">01 - Texto 1</a> |
-        <a href="exercicios/texto2.html">02 - Texto 2</a> |
-        <a href="exercicios/listas.html">03 - Listas</a> |
-        <a href="exercicios/listasAninhadas.html">04 - Listas Aninhadas</a> |
+        <a href wm-nav="exercicios/teste.html">00 - Teste</a> |
+        <a href wm-nav="exercicios/texto1.html">01 - Texto 1</a> |
+        <a href wm-nav="exercicios/texto2.html">02 - Texto 2</a> |
+        <a href wm-nav="exercicios/listas.html">03 - Listas</a> |
+        <a href wm-nav="exercicios/listasAninhadas.html">04 - Listas Aninhadas</a> |
+        <a href wm-nav="exercicios/links.html">05 - Links</a> |
+        <a href wm-nav="exercicios/tabela.html">06 - Tabela</a> |
+        <a href wm-nav="exercicios/form/form.html">07 - Formulário</a> |
     </nav>
     <section id="conteudo"></section>
     <footer>
         Curso de Web Moderno
     </footer>
     <script>
-        document.querySelectorAll('a').forEach(link => {
+        document.querySelectorAll('[wm-nav]').forEach(link => {
             const conteudo = document.getElementById('conteudo');
 
             link.onclick = evento => {
                 evento.preventDefault();
-                fetch(link.href)
+                fetch(link.getAttribute('wm-nav'))
                     // text() retorna o conteúdo da tag em forma de texto
                     .then(res => res.text())
                     // innerHTML pega todo o conteúdo html dentro da tag
