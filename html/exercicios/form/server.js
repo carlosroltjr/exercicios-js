@@ -9,4 +9,10 @@ app.post('/usuarios', (req, res) => {
     res.send('<h1>Parabéns</h1>');
 });
 
-app.listen(3000);
+app.post('/usuarios/:id', (req, res) => {
+    console.log(req.params.id);
+    console.log(req.body);
+    res.send('<h1>Parabéns</h1>');
+});
+
+app.listen(3003);
