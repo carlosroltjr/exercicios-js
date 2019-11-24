@@ -1,0 +1,100 @@
+<div wm-slider>
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da Cidade" width="513" height="342"
+            title="Muro da Cidade por Tarso Bessa">
+    </p>
+
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de Janeiro" height="342">
+    </p>
+
+    <p class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="Avatar" height="50" align="left">
+        Texto: asdasdasdasd asdad ads addsa d sd a sdf sdf sfsd f
+        f asDa da SD AS SF DSA sdfasdfsdfasfsdf fdsfasdfsadf sfdf
+        sfsadf asdf asf asdf asdf s fsdfasdfsfas gds gs dgsdg asg
+        asdsdf afsdasdf asdf df sfasd sd g dgfg df dgadgwe few sf
+    </p>
+
+    <p class="cidade"></p>
+
+    <p>
+        <!-- <picture> pode ter várias fontes e imagens diferentes -->
+        <!--  Pode aplicar critérios para saber se a imagem será exibida ou não -->
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" media="(min-width: 600px)">
+            <!-- Se nenhuma imagem/fonte dentro de <source> foi exibida, é passado para a <img> abaixo -->
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+        </picture>
+    </p>
+</div>
+
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+
+    .circular {
+        width: 513px;
+        background-color: #444;
+    }
+
+    .texto {
+        width: 400px;
+        text-align: justify;
+
+    }
+
+    .texto img {
+        margin-right: 10px;
+    }
+
+    .cidade {
+        width: 513px;
+        height: 342px;
+        background-image: url(http://files.cod3r.com.br/curso-web/imagem4.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+</style>
+
+<script>
+    function mover(el, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo;
+        if (novoInicio >= fim) {
+            el.style.right = `${novoInicio}px`;
+            setTimeout(() => mover(el, novoInicio, fim, passo, callback), 15);
+        } else {
+            callback();
+        }
+    }
+
+    function slider() {
+        const elementos = document.querySelectorAll('[wm-slider] > p');
+        const slides = Array.from(elementos); // transforma a node list 'elementos' num array
+        exibirSlides(slides, slides[0]);
+    }
+
+    function exibirSlides(slides, slide) {
+        slide.style.display = 'block';
+
+        const inicio = innerWidth;
+        const fim = -slide.clientWidth;
+
+        slide.style.right = `${inicio}px`;
+
+        mover(slide, inicio, fim, 5, () => {
+            slide.style.display = 'none';
+            exibirSlides(slides, getProximo(slides, slide));
+        });
+    }
+
+    function getProximo(lista, atual) {
+        const i = lista.indexOf(atual) + 1;
+        return i < lista.length ? lista[i] : lista[0];
+    }
+
+    slider();
+</script>

@@ -4,7 +4,7 @@
     <input type="hidden" name="id" value="3">
     <input type="text" name="nome">
     <input type="password" name="senha">
-    <textarea name="bio" cols="30" rows="10">Biografia</textarea>
+    <textarea name="bio" cols="30" rows="10"></textarea>
     <div>
         <input type="radio" name="tipo" value="admin"> Admin
         <input type="radio" name="tipo" value="regular"> Regular
@@ -30,3 +30,17 @@
     <button formaction="http://localhost:3003/usuarios">Incluir</button>
     <button formaction="http://localhost:3003/usuarios/3">Alterar</button>
 </form>
+
+<style>
+    input,
+    textarea,
+    select {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type=radio],
+    input[type=checkbox] {
+        display: inline;
+    }
+</style>
