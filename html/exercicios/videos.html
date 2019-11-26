@@ -1,0 +1,72 @@
+<video width="600" controlsList="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    Seu browser não suporta a tag de vídeo
+</video>
+
+<div class="timer">
+    <div></div>
+</div>
+
+<div class="controls">
+    <button class="play" data-icon="P" aria-label="play/pause toggle"></button>
+</div>
+
+<style>
+    .timer {
+        height: 5px;
+        width: 598px;
+        border: solid 1px #444;
+        margin: 5px 0 5px 0;
+    }
+
+    .timer>div {
+        background-color: #bf171d;
+        height: 100%;
+        width: 0;
+    }
+
+    @font-face {
+        font-family: 'HeydingsControlsRegular';
+        src: url('heydings_controls-webfont.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    button {
+        padding: 0px 4px 6px 4px;
+    }
+
+    button:before {
+        font-family: HeydingsControlsRegular;
+        font-size: 20px;
+        color: #c7c7c7;
+        position: relative;
+        text-shadow: 1px 1px 0px black;
+        content: attr(data-icon);
+    }
+</style>
+
+<script>
+    const media = document.querySelector('video');
+    const play = document.querySelector('.play');
+    const timerWrapper = document.querySelector('.timer');
+    const timerBar = document.querySelector('.timer > div');
+
+    media.addEventListener('timeupdate', setTime)
+    play.addEventListener('click', playAndPause);
+
+    function playAndPause() {
+        if (media.paused) {
+            play.setAttribute('data-icon', 'u');
+            media.play();
+        } else {
+            play.setAttribute('data-icon', 'P');
+            media.pause();
+        }
+    }
+
+    function setTime() {
+        let barLength = timerWrapper.clientWidth * (media.currentTime / media.duration);
+        timerBar.style.width = `${barLength}px`;
+    }
+</script>
