@@ -5,7 +5,36 @@
     <meta charset="UTF-8">
     <title>Box Model</title>
     <style>
-        /* ... */
+        body {
+            font-size: 80px;
+            color: #fff;
+            margin: 0;
+        }
+
+        .c1 {
+            background-color: #000;
+        }
+
+
+        .c2 {
+            background-color: #db0a16;
+        }
+
+
+        .c3 {
+            background-color: #fecd2f;
+        }
+
+        /* nesse exemplo não ocorreu margin colapse por conta do float */
+        div {
+            float: left;
+            padding-top: 100px;
+            padding: 10px 50px 100px 150px;
+            padding: 100px 50px;
+            padding: 50px;
+            margin: 0px 20px;
+            border: solid 15px #9c9c9c;
+        }
     </style>
 </head>
 

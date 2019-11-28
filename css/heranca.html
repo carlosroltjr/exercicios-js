@@ -3,9 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
     <title>Herança</title>
     <style>
-        /* ... */
+        body {
+            font-family: 'Special Elite', cursive;
+            font-size: 40px;
+            /* border e padding não são herdados por padrão */
+            border: solid 3px red;
+            padding: 50px;
+            margin: 20px 40px 10px 100px;
+        }
+
+        div {
+            /* inherit == herdar */
+            border: inherit;
+            padding: inherit;
+        }
     </style>
 </head>
 
