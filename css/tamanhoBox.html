@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Tamanho Box</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-size: 45px;
+            margin: 0;
+        }
+
+        div {
+            background-color: deepskyblue;
+            width: 100%;
+            height: 300px;
+            padding: 100px;
+            border: solid 20px;
+            /* 
+                Usando border-box:
+                Tudo que está dentro da borda é usado para calcular o width e height final
+                Height = 20 + 100 + 60 + 100 + 20 = 300px
+             */
         }
     </style>
 </head>
+
 <body>
     <div>
         O tamanho do Box é...
     </div>
 </body>
+
 </html>
