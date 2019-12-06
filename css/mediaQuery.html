@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Media Query</title>
@@ -12,11 +13,34 @@
             border: solid 5px;
             display: none;
         }
+
+        /* quando a largura for no máximo 600px vai ser aplicado o css interno */
+        @media (max-width: 600px) {
+            .muito-pequeno {
+                display: block;
+            }
+        }
+
+        /* testar com visão de celular também */
+        @media (max-width: 1000px),
+        (orientation: portrait) {
+            .pequeno-retrato {
+                display: block;
+            }
+        }
+
+        @media (min-width: 500px) and (max-width: 1000px) {
+            .intervalo {
+                display: block;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="muito-pequeno">Muito Pequeno</div>
     <div class="pequeno-retrato">Pequeno ou Retrato</div>
     <div class="intervalo">Intervalo</div>
 </body>
+
 </html>
