@@ -7,6 +7,29 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
+        @media (max-width: 500px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+            .menu {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: inline-block;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
         * {
             text-decoration: none;
             font-family: Oswald;
@@ -25,12 +48,16 @@
         li,
         nav,
         aside {
-            padding: 0px 5px;
             display: inline-block;
+            padding: 0px 5px;
+        }
+
+        aside {
+            margin-top: 10px;
+            float: right;
         }
 
         li:hover {
-            color: #000;
             background-color: #81b7da;
         }
 
@@ -71,27 +98,55 @@
         <nav class="menu">
             <ul>
                 <li>
-                    <a href="#inicio">Início</a>
+                    <a id="inicio" href="#inicio">Início</a>
                 </li>
                 <li>
-                    <a href="#cursos">Cursos</a>
+                    <a id="cursos" href="#cursos">Cursos</a>
                 </li>
                 <li>
-                    <a href="#sobre">Sobre</a>
+                    <a id="sobre" href="#sobre">Sobre</a>
                 </li>
                 <li>
-                    <a href="#contato">Contato</a>
+                    <a id="contato" href="#contato">Contato</a>
                 </li>
             </ul>
         </nav>
         <aside class="autenticacao">
             <a href="#login">Login</a>
-            <a href="#registar" class="botao destaque">Registrar</a>
+            <a href="#registrar" class="botao destaque">Registrar</a>
         </aside>
     </header>
 
     <script>
-        // ...
+        window.addEventListener('hashchange', mudou);
+        function mudou() {
+            const url = window.location.href;
+            if (url.endsWith('#contato')) {
+                const li = document.getElementById('contato');
+                li.style.backgroundColor = '#81b7da'
+                console.log('contato');
+            } else if (url.endsWith('#sobre')) {
+                const li = document.getElementById('sobre');
+                li.style.backgroundColor = '#81b7da'
+                console.log('sobre');
+            } else if (url.endsWith('#cursos')) {
+                const li = document.getElementById('cursos');
+                li.style.backgroundColor = '#81b7da'
+                console.log('cursos');
+            } else if (url.endsWith('#inicio')) {
+                const li = document.getElementById('inicio');
+                li.style.backgroundColor = '#81b7da'
+                console.log('inicio');
+            } else if (url.endsWith('#login')) {
+                const li = document.getElementById('login');
+                li.style.backgroundColor = '#81b7da'
+                console.log('login');
+            } else if (url.endsWith('#registrar')) {
+                const li = document.getElementById('registrar');
+                li.style.backgroundColor = '#81b7da'
+                console.log('registrar');
+            }
+        }
     </script>
 </body>
 
