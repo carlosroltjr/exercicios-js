@@ -14,7 +14,7 @@
         body {
             margin: 0;
             font-family: 'Oswald', sans-serif;
-            background-color: lightgray;
+            background-color: #d3d3d3;
         }
 
         .cabecalho {
@@ -43,6 +43,72 @@
             height: 40px;
             padding: 10px 20px;
             margin: 20px 15px;
+        }
+
+        .menu,
+        .autenticacao {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .menu a,
+        .autenticacao a {
+            text-decoration: none;
+            color: #eee;
+            font-size: 1.3em;
+            padding: 15px;
+        }
+
+        .autenticacao {
+            float: right;
+        }
+
+        .botao {
+            border-radius: 25px;
+            background-color: #8b0000;
+        }
+
+        .destaque {
+            box-shadow: 1px 2px 2px 1px #470000;
+        }
+
+        .destaque:active {
+            box-shadow: none;
+        }
+
+        .menu a:hover,
+        .menu a.selected {
+            background-color: #4faddb;
+            color: #333;
+        }
+
+        @media (max-width: 610px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+
+        @media (max-width: 990px) {
+            .menu {
+                display: none;
+            }
+        }
+
+        @media (min-width: 991px) {
+            .menu-toggle {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -80,7 +146,14 @@
     </header>
 
     <script>
-       // ...
+        window.onhashchange = e => {
+            const urlAntiga = e.oldURL.split('#')[1];
+            const urlNova = e.newURL.split('#')[1];
+            const menuAntigo = document.querySelector(`.menu a[href='#${urlAntiga}'`);
+            const menuNovo = document.querySelector(`.menu a[href='#${urlNova}'`);
+            menuAntigo && menuAntigo.classList.remove('selected');
+            menuNovo && menuNovo.classList.add('selected');
+        }
     </script>
 </body>
 
