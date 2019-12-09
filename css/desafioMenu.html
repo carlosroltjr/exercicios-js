@@ -7,80 +7,108 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        @media (max-width: 500px) {
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            background-color: #d3d3d3;
+        }
+
+        .cabecalho {
+            background-color: #333;
+            box-shadow: 1px 1px 5px 1px #4faddb;
+            height: 80px;
+            box-sizing: content-box;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 80px;
+            padding: 15px;
+        }
+
+        .logo img {
+            height: 100%;
+        }
+
+        .menu-toggle {
+            float: right;
+            color: #eee;
+            background-color: #555;
+            border: solid 1px #777;
+            border-radius: 5px;
+            height: 40px;
+            padding: 10px 20px;
+            margin: 20px 15px;
+        }
+
+        .menu,
+        .autenticacao {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .menu a,
+        .autenticacao a {
+            text-decoration: none;
+            color: #eee;
+            font-size: 1.3em;
+            padding: 15px;
+        }
+
+        .autenticacao {
+            float: right;
+        }
+
+        .botao {
+            border-radius: 25px;
+            background-color: #8b0000;
+        }
+
+        .destaque {
+            box-shadow: 1px 2px 2px 1px #470000;
+        }
+
+        .destaque:active {
+            box-shadow: none;
+        }
+
+        .menu a:hover,
+        .menu a.selected {
+            background-color: #4faddb;
+            color: #333;
+        }
+
+        @media (max-width: 610px) {
             .autenticacao {
                 display: none;
             }
         }
 
-
-        @media (max-width: 600px) {
+        @media (max-width: 990px) {
             .menu {
                 display: none;
             }
-
-            .menu-toggle {
-                display: inline-block;
-            }
         }
 
-        @media (min-width: 601px) {
+        @media (min-width: 991px) {
             .menu-toggle {
                 display: none;
             }
-        }
-
-        * {
-            text-decoration: none;
-            font-family: Oswald;
-        }
-
-        body {
-            margin: 0px;
-        }
-
-        img {
-            padding: 10px;
-            height: 60px;
-        }
-
-        ul,
-        li,
-        nav,
-        aside {
-            display: inline-block;
-            padding: 0px 5px;
-        }
-
-        aside {
-            margin-top: 10px;
-            float: right;
-        }
-
-        li:hover {
-            background-color: #81b7da;
-        }
-
-        .cabecalho {
-            height: 80px;
-            width: 100%;
-            background-color: #3a3a3a;
-            box-shadow: 2px 2px 5px 2px #81b7da;
-        }
-
-        .botao {
-            padding: 5px 10px;
-            border-radius: 25px;
-            color: #fff;
-            background-color: #c8272b;
-        }
-
-        .destaque {
-            box-shadow: 2px 2px 1px 1px #4e1314;
-        }
-
-        .destaque:active {
-            box-shadow: none;
         }
     </style>
 </head>
@@ -98,16 +126,16 @@
         <nav class="menu">
             <ul>
                 <li>
-                    <a id="inicio" href="#inicio">Início</a>
+                    <a href="#inicio">Início</a>
                 </li>
                 <li>
-                    <a id="cursos" href="#cursos">Cursos</a>
+                    <a href="#cursos">Cursos</a>
                 </li>
                 <li>
-                    <a id="sobre" href="#sobre">Sobre</a>
+                    <a href="#sobre">Sobre</a>
                 </li>
                 <li>
-                    <a id="contato" href="#contato">Contato</a>
+                    <a href="#contato">Contato</a>
                 </li>
             </ul>
         </nav>
@@ -118,34 +146,13 @@
     </header>
 
     <script>
-        window.addEventListener('hashchange', mudou);
-        function mudou() {
-            const url = window.location.href;
-            if (url.endsWith('#contato')) {
-                const li = document.getElementById('contato');
-                li.style.backgroundColor = '#81b7da'
-                console.log('contato');
-            } else if (url.endsWith('#sobre')) {
-                const li = document.getElementById('sobre');
-                li.style.backgroundColor = '#81b7da'
-                console.log('sobre');
-            } else if (url.endsWith('#cursos')) {
-                const li = document.getElementById('cursos');
-                li.style.backgroundColor = '#81b7da'
-                console.log('cursos');
-            } else if (url.endsWith('#inicio')) {
-                const li = document.getElementById('inicio');
-                li.style.backgroundColor = '#81b7da'
-                console.log('inicio');
-            } else if (url.endsWith('#login')) {
-                const li = document.getElementById('login');
-                li.style.backgroundColor = '#81b7da'
-                console.log('login');
-            } else if (url.endsWith('#registrar')) {
-                const li = document.getElementById('registrar');
-                li.style.backgroundColor = '#81b7da'
-                console.log('registrar');
-            }
+        window.onhashchange = e => {
+            const urlAntiga = e.oldURL.split('#')[1];
+            const urlNova = e.newURL.split('#')[1];
+            const linkAntigo = document.querySelector(`.menu a[href='#${urlAntiga}'`);
+            const linkNovo = document.querySelector(`.menu a[href='#${urlNova}'`);
+            linkAntigo && linkAntigo.classList.remove('selected');
+            linkNovo && linkNovo.classList.add('selected');
         }
     </script>
 </body>
