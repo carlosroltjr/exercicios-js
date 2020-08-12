@@ -9,7 +9,7 @@ const funcionario = {
 const clone = { ativo: true, ...funcionario };
 console.log(clone);
 
-// usar spread com objeto (espalha todos os elementos do array dentro de 'grupoFinal')
+// usar spread com array (espalha todos os elementos do array dentro de 'grupoFinal')
 const grupoA = ['Carlos', 'Nadya', 'Roberto'];
 const grupoFinal = ['victória', ...grupoA];
 console.log(grupoFinal);
