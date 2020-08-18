@@ -14,6 +14,13 @@ async function retornarValorRapido() {
     return 20
 }
 
+esperarPor()
+    .then(() => console.log("Executando promise 1..."))
+    .then(esperarPor)
+    .then(() => console.log("Executando promise 2..."))
+    .then(esperarPor)
+    .then(() => console.log("Executando promise 3..."))
+
 async function executar() {
     let valor = await retornarValorRapido()
 
