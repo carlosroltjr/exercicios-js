@@ -10,7 +10,15 @@
 <body class="conteudo exercicio">
     <h1>Estados</h1>
 
-    <script>
-        // ...
+    <script type="text/javascript">
+        const url = 'dados/estados.json'
+        fetch(url)
+            .then(res => res.json())
+            .then(estados => {
+                const itens = estados.reduce(
+                    (html, estado) => html + `<li>${estado.nome}</li>`, ''
+                )
+                document.body.insertAdjacentHTML('beforeEnd', `<ul>${itens}</ul>`)
+            })
     </script>
 </body>
