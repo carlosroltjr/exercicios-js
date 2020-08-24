@@ -10,10 +10,26 @@
 
 <body class="conteudo exercicio">
     <h1>Axios Get/Post</h1>
-    <div id="get"></div>
-    <div id="post"></div>
+    <div id="get-div"></div>
+    <div id="post-div"></div>
 
     <script>
-        // ...
+        function exibirResultado(id, dados) {
+            const texto = JSON.stringify(dados)
+            document.getElementById(id).innerHTML = texto
+        }
+
+        // // escrevi apenas axios() por que a requisição tipo get é a default
+        // axios('/parOuImpar?numero=5').then(resp => exibirResultado('get-div', resp.data))
+
+        axios.get('/parOuImpar', {
+            params: { numero: 4 }
+        }).then(resp => exibirResultado('get-div', resp.data))
+
+        axios.post('/formulario', {
+            nome: 'Nadya',
+            idade: 23
+        }).then(resp => exibirResultado('post-div', resp.data))
+
     </script>
 </body>

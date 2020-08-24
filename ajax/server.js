@@ -2,6 +2,7 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const multer = require('multer')
 const app = express()
+const porta = 8080
 
 app.use(express.static('.'))
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -30,10 +31,16 @@ app.post('/upload', (req, res) => {
 
 app.post('/formulario', (req, res) => {
     res.send({
-        ...req.body,
-        id: 1
+        ...req.body
+    })
+})
+
+app.get('/parOuImpar', (req, res) => {
+    const par = parseInt(req.query.numero) % 2 === 0
+    res.send({
+        resultado: par ? 'é par' : 'é ímpar'
     })
 })
 
 app.get('/teste', (req, res) => res.send('OK'))
-app.listen(8080, () => console.log('Executando...'))
+app.listen(porta, () => console.log(`Executando em http://localhost:${porta}`))
